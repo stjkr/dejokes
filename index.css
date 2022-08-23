@@ -3,13 +3,11 @@
     --color-2: #000;
     --color-3: #0f0;
 
-    --color-4: rgb(248, 249, 250);
-    --color-5: rgb(238, 239, 240);
-    --color-6: rgb(245, 245, 245);
+    --color-4: #f8f9fa;
 }
 
 body{
-    background: var(--color-4);
+    background: var(--color-1);
     font-family: circe, sans-serif;
     font-weight: 700;
     font-style: normal;
@@ -28,18 +26,22 @@ header{
     left: 0;
     height: 100px;
     width: 100%;
+    text-align: center;
 
     padding: 25px 20%;
     box-sizing: border-box;
 
-    background: radial-gradient(var(--color-6), var(--color-5));
+    background: var(--color-4);
 }
 
 header img{
     height: 100%;
-    float: left;
     display: inline;
     transition: transform 0.5s;
+}
+
+.main-logo{
+    float: left;
 }
 
 header img:hover{
@@ -66,7 +68,7 @@ footer{
     align-items: center;
     justify-content: center;
 
-    background: radial-gradient(var(--color-5), var(--color-6));
+    background: var(--color-4);
 }
 
 main{
@@ -109,12 +111,12 @@ main{
 }
 
 #answer:hover{
-    color:black;
+    color: var(--color-2);
     text-shadow: none;
 }
 
 .visible{
-    color:black;
+    color: var(--color-2);
     text-shadow: none; 
 }
 

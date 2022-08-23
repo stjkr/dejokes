@@ -6,15 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
     <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
-    <meta content="DeJokes - Have a laugh." property="og:title" />
-    <meta content="#f5f5f5" data-react-helmet="true" name="theme-color" />
     <link rel="stylesheet" href="https://use.typekit.net/kts8daj.css">
-    <title> DeJokes - Have a laugh. </title>
+    <meta content="DeJokes" property="og:title" />
+    <meta content="https://i.imgur.com/pUy2brX.png" property="og:image" />
+    <meta content="#f8f9fa" data-react-helmet="true" name="theme-color" />
+    
+    <title> DeJokes </title>
 </head>
 
 <body>
     <header>
-        <img src="./img/logo.png">
+        <img class="main-logo" src="./img/logo.png">
+        <img src="./img/dejokes.PNG">
         <a href="https://twitter.com/stjpg_" target="_blank"><img src="./img/twitter.png"></a>
     </header>
     <main>
@@ -47,7 +50,7 @@
         const xhttp = new XMLHttpRequest();
         xhttp.onload = function (data) {
             var collect = JSON.parse(this.responseText);
-            if (collect["setup"] != undefined) {
+            if (collect["setup"].length < 100) {
                 joke.innerHTML = collect["setup"];
                 answer.classList.remove('visible');
                 answer.classList.add('invisible');
@@ -59,11 +62,11 @@
         xhttp.send();
     }
 
-    function show(){
+    function show() {
         answer.classList.remove('invisible');
-        answer.classList.add('visible') ;
+        answer.classList.add('visible');
     }
-    
+
     var colors = ["#ff0080", "#7928ca"];
 
     function frame() {
