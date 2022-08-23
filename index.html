@@ -6,32 +6,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
     <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
-    <meta content="Dusty Boy" property="og:title" />
-    <meta content="#ffffff" data-react-helmet="true" name="theme-color" />
+    <meta content="DeJokes - Chillax" property="og:title" />
+    <meta content="#f5f5f5" data-react-helmet="true" name="theme-color" />
     <link rel="stylesheet" href="https://use.typekit.net/kts8daj.css">
-    <title> Dust Platform </title>
+    <title> DeJokes - Have a laugh. </title>
 </head>
 
 <body>
     <header>
         <img src="./img/logo.png">
-        <a href=""><img src="./img/twitter.png"></a>
+        <a href="https://twitter.com/stjpg_" target="_blank"><img src="./img/twitter.png"></a>
     </header>
     <main>
         <section class="dejokes">
             <div class="joke">
-                <text> Why did the chicken cross the road? </text>
+                <text id="joke"> Press the button... </text>
+                <text id="answer"> ..for a joke</text>
             </div>
             <div class="next">
-                <button>NEXT</button>
+                <button onclick="newjoke()">Gimme a joke!</button>
             </div>
         </section>
 
     </main>
 
     <footer>
-        Not affiliated with <a href="https://twitter.com/degodsnft" target="_blank"><u>DeGods</u></a>.
+        Not affiliated with <a href="https://twitter.com/degodsnft" target="_blank"><u>DeGods</u></a>. Please not these are not my jokes.
     </footer>
 </body>
 
 </html>
+<script src='https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js'></script>
+
+<script>
+
+    const joke = document.getElementById("joke");
+    const answer = document.getElementById("answer");
+
+    function newjoke() {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function (data) {
+            var collect = JSON.parse(this.responseText);
+            if (collect["setup"] != undefined) {
+                joke.innerHTML = collect["setup"];
+                answer.innerHTML = collect["delivery"];
+            }
+        }
+        xhttp.open("GET", "https://v2.jokeapi.dev/joke/Any?blacklistFlags=religious,political,racist,sexist", true);
+        xhttp.send();
+
+        frame()
+    }
+
+    var colors = ["#ff0080", "#7928ca"];
+
+    function frame() {
+        confetti({
+            particleCount: 2,
+            angle: 60,
+            spread: 55,
+            origin: { x: 0 },
+            colors: colors,
+        });
+        confetti({
+            particleCount: 2,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1 },
+            colors: colors,
+        });
+    }
+</script>

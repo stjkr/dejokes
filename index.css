@@ -29,7 +29,7 @@ header{
     height: 100px;
     width: 100%;
 
-    padding: 25px 20% 25px 20%;
+    padding: 25px 20%;
     box-sizing: border-box;
 
     background: radial-gradient(var(--color-6), var(--color-5));
@@ -89,8 +89,24 @@ main{
     text-align: center;
     padding: 50px;
     box-sizing: border-box;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 30px;
+}
+
+.joke text{
+    margin: 25px
+}
+
+#answer{
+    color: transparent;
+    text-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+#answer:hover{
+    color:black;
+    text-shadow: none;
 }
 
 .next{
@@ -100,6 +116,10 @@ main{
     text-align: center;
     padding: 40px;
     box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
 }
 
 .next button{
@@ -123,4 +143,16 @@ main{
 
 .next button:hover{
     transform: translateY(-7px);
+}
+
+
+@media  screen and (max-width: 1000px) {
+    header{
+        padding: 25px 10%;
+    }
+
+    .dejokes{
+        width: 70%;
+        height: 70%;
+    }
 }
