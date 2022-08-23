@@ -92,7 +92,7 @@ main{
     height: 70%;
     width: 100%;
     text-align: center;
-    padding: 50px;
+    padding: 10px;
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -101,7 +101,8 @@ main{
 }
 
 .joke text{
-    margin: 25px
+    margin: 25px;
+    text-align: left;
 }
 
 .invisible{
@@ -156,13 +157,22 @@ main{
 }
 
 
-@media  screen and (max-width: 1000px) {
+@media  screen and (max-width: 1200px) {
     header{
-        padding: 25px 10%;
+        padding: 25px 5%;
+    }
+
+    header img{
+        height: 70%;
     }
 
     .joke{
         font-size: 20px;
+        height: 50%;
+    }
+
+    .next{
+        height: 30%;
     }
 
     .dejokes{
