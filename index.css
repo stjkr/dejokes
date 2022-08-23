@@ -55,12 +55,16 @@ footer{
     position: fixed;
     bottom: 0;
     left: 0;
-    height: 75px;
+    height: 100px;
     width: 100%;
 
     padding: 25px;
     text-align: center;
     box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     background: radial-gradient(var(--color-5), var(--color-6));
 }
@@ -149,6 +153,10 @@ main{
 @media  screen and (max-width: 1000px) {
     header{
         padding: 25px 10%;
+    }
+
+    .joke{
+        font-size: 20px;
     }
 
     .dejokes{
