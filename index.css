@@ -55,7 +55,7 @@ footer{
     position: fixed;
     bottom: 0;
     left: 0;
-    height: 100px;
+    height: 75px;
     width: 100%;
 
     padding: 25px;
@@ -89,7 +89,6 @@ main{
 .joke{
     height: 70%;
     width: 100%;
-    background: var(--color-6);
     text-align: center;
     padding: 50px;
     box-sizing: border-box;
@@ -116,7 +115,6 @@ main{
 .next{
     height: 30%;
     width: 100%;
-    background: var(--color-5);
     text-align: center;
     padding: 40px;
     box-sizing: border-box;
@@ -145,7 +143,7 @@ main{
     transition: transform 0.5s;
 }
 
-.next button:hover{
+.next button:hover, .next button:active{
     transform: translateY(-7px);
 }
 
