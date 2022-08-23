@@ -102,14 +102,20 @@ main{
     margin: 25px
 }
 
-#answer{
+.invisible{
     color: transparent;
+    cursor: pointer;
     text-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
 
 #answer:hover{
     color:black;
     text-shadow: none;
+}
+
+.visible{
+    color:black;
+    text-shadow: none; 
 }
 
 .next{

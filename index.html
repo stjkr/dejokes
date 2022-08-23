@@ -21,7 +21,7 @@
         <section class="dejokes">
             <div class="joke">
                 <text id="joke"> Press the button... </text>
-                <text id="answer"> ..for a joke</text>
+                <text class="invisible" id="answer"> ..for a joke</text>
             </div>
             <div class="next">
                 <button onclick="newjoke()">Gimme a joke!</button>
@@ -49,16 +49,21 @@
             var collect = JSON.parse(this.responseText);
             if (collect["setup"] != undefined) {
                 joke.innerHTML = collect["setup"];
+                answer.classList.remove('visible');
+                answer.classList.add('invisible');
                 answer.innerHTML = collect["delivery"];
                 frame();
             }
         }
         xhttp.open("GET", "https://v2.jokeapi.dev/joke/Any?blacklistFlags=religious,political,racist,sexist,explicit&type=twopart", true);
         xhttp.send();
-
-        
     }
 
+    function show(){
+        answer.classList.remove('invisible');
+        answer.classList.add('visible') ;
+    }
+    
     var colors = ["#ff0080", "#7928ca"];
 
     function frame() {
@@ -77,4 +82,7 @@
             colors: colors,
         });
     }
+
+
+    answer.addEventListener("click", show);
 </script>
