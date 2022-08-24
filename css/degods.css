@@ -5,3 +5,11 @@ header{
 footer{
     background: rgb(236,233,230);
 }
+
+#degod-img{
+    position: absolute;
+    bottom: 75px;
+    left: 0;
+    height: 200px;
+    border-radius: 0px 25px 0px 0px;
+}

@@ -24,24 +24,33 @@
 </head>
 
 <body>
+
+
     <header>
-        <img class="main-logo" src="./img/logo.png">
+        <a id="logo" href="./index.html"><img class="main-logo" src="./img/logo.png"></a>
         <img src="./img/dejokes.PNG">
-        <a href="https://twitter.com/dejokeslol" target="_blank"><img src="./img/twitter.png"></a>
+        <a id="twitter" href="https://twitter.com/dejokeslol" target="_blank"><img src="./img/twitter.png"></a>
     </header>
 
-    <section class="entry">
+    <section class="main-index">
+        <section class="entry">
+            <div class="display">
+                <a href="./light.html" id="light" class="nav">Light</a>
+            </div>
+            <div class="display">
+                <a href="./degods.html" id="degods" class="nav">
+                    DeGods</a>
+            </div>
+            <div class="display">
+                <a href="./dark.html" id="dark" class="nav">Dark</a>
+            </div>
+        </section>
+        <section class="bottom">
+            <div class="submit-box">
+                <a href="./submit.html"> Submit your joke & have it shown in the DeGods section.</a>
+            </div>
 
-        <div class="display">
-            <div id="light" class="nav">Light</div>
-        </div>
-        <div class="display">
-            <div id="degods" class="nav"><img id="degod-img" onerror="this.style.display='none'"/>
-                DeGods</div>
-        </div>
-        <div class="display">
-            <div id="dark" class="nav">Dark</div>
-        </div>
+        </section>
     </section>
 
     <footer>
@@ -51,23 +60,3 @@
 
 </html>
 <script src='https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js'></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
-<script>
-
-
-    const colorThief = new ColorThief();
-    const img = new Image();
-    var random = Math.floor(Math.random() * 1000);
-
-    img.addEventListener('load', function () {
-        let c = colorThief.getColor(img);
-        console.log(colorThief.getPalette(img, 5))
-        console.log("rgb("+c[0]+","+c[1]+","+c[2]+")")
-        // document.getElementsByClassName("entry")[0].style.background = "rgb("+c[0]+","+c[1]+","+c[2]+")";
-    });
-
-    img.crossOrigin = 'Anonymous';
-    img.src = 'https://metadata.degods.com/g/' + random + '-dead.png'
-    document.getElementById('degod-img').src = img.src
-</script>

@@ -1,0 +1,102 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://use.typekit.net/kts8daj.css">
+    <meta property="og:title" content="DeJokes" />
+    <meta property="og:description" content="Have a laugh." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://i.imgur.com/FbidE8T.png" />
+    <meta property="og:url" content="https://www.dejokes.lol" />
+    <meta property="og:site_name" content="DeJokes" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@dejokeslol" />
+    <meta name="twitter:title" content="DeJokes" />
+    <meta name="twitter:description" content="Have a laugh." />
+    <meta name="twitter:image" content="https://i.imgur.com/FbidE8T.png" />
+    <meta content="#f8f9fa" data-react-helmet="true" name="theme-color" />
+
+    <title> DeJokes </title>
+</head>
+
+<body>
+
+
+    <header>
+        <a id="logo" href="./index.html"><img class="main-logo" src="./img/logo.png"></a>
+        <img src="./img/dejokes.PNG">
+        <a id="twitter" href="https://twitter.com/dejokeslol" target="_blank"><img src="./img/twitter.png"></a>
+    </header>
+    <div id="notification"></div>
+    <form method="POST"  action="#" class="form">
+        <h1> DeJoke Submission </h1><a onclick="submitForm()">Submit</a>
+        <text> Enter your joke, the answer & your twitter handle. </text>
+        <input name="joke" placeholder="Enter your joke..." />
+        <input name="answer" placeholder="Enter your answer..." />
+        <input name="twitter" placeholder="Enter your twitter username..." />
+
+
+    </form>
+
+    <footer>
+        Not affiliated with <a href="https://twitter.com/degodsnft" target="_blank"><u>DeGods</u></a>.
+    </footer>
+</body>
+
+</html>
+<script src='https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js'></script>
+
+<script>
+    function submitForm(){
+        var joke = document.getElementsByName("joke")[0];
+        var answer = document.getElementsByName("answer")[0];
+        var twitter = document.getElementsByName("twitter")[0];
+
+        let div = document.createElement("div");
+        div.classList.add("loading")
+        let img = document.createElement("img");
+        img.src = "https://pbs.twimg.com/profile_images/1538393741592973312/iLuk_ro1_400x400.jpg";
+        div.appendChild(img);
+        document.body.appendChild(div)
+
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function (data) {
+            var collect = JSON.parse(this.responseText);
+            console.log(collect)
+            div.style.display = "none";
+            createNotification(collect["response"])
+            
+
+        }
+        if(joke.value.length > 0 || answer.value.length > 0 || twitter.value.length >0){
+            xhttp.open("GET", "http://10.0.0.11:5000/submit/joke="+joke.value+"&answer="+answer.value+"&twitter="+twitter.value, true);
+            xhttp.send();
+        } else {
+            div.style.display = "none";
+            createNotification("Nothing has been entered.")
+        }
+
+    }
+</script>
+
+<script>
+const notification = document.getElementById('notification')
+
+function createNotification(text) {
+    const notif = document.createElement('div')
+    notif.classList.add('toast')
+
+    notif.innerText = text
+
+    notification.appendChild(notif)
+
+    setTimeout(() => {
+       notif.remove()
+    }, 10000);
+}
+
+</script>
