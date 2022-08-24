@@ -20,7 +20,7 @@
     <meta name="twitter:image" content="https://i.imgur.com/FbidE8T.png" />
     <meta content="#f8f9fa" data-react-helmet="true" name="theme-color" />
 
-    <title> DeJokes </title>
+    <title> Light DeJokes </title>
 </head>
 
 <body>
@@ -29,20 +29,20 @@
         <img src="./img/dejokes.PNG">
         <a href="https://twitter.com/dejokeslol" target="_blank"><img src="./img/twitter.png"></a>
     </header>
-
-    <section class="entry">
-
-        <div class="display">
-            <div id="light" class="nav">Light</div>
+    <main>
+        <section class="dejokes">
+            <div class="joke">
+                <text id="joke"> Press the button... </text>
+                <text class="invisible" id="answer"> ..for a joke</text>
+            </div>
+            <div class="next">
+                <button onclick="newjoke()">Gimme a joke</button>
+                
+            </div>
+        <div class="tweetus">
+            <a id="tweet" class="twitter-share-button" target="_blank" href="https://twitter.com/intent/tweet?text=@DeJokeslol">Tweet us your joke.</a>
         </div>
-        <div class="display">
-            <div id="degods" class="nav"><img id="degod-img" onerror="this.style.display='none'"/>
-                DeGods</div>
-        </div>
-        <div class="display">
-            <div id="dark" class="nav">Dark</div>
-        </div>
-    </section>
+    </main>
 
     <footer>
         Not affiliated with <a href="https://twitter.com/degodsnft" target="_blank"><u>DeGods</u></a>.
@@ -52,22 +52,4 @@
 </html>
 <script src='https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js'></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
-<script>
-
-
-    const colorThief = new ColorThief();
-    const img = new Image();
-    var random = Math.floor(Math.random() * 1000);
-
-    img.addEventListener('load', function () {
-        let c = colorThief.getColor(img);
-        console.log(colorThief.getPalette(img, 5))
-        console.log("rgb("+c[0]+","+c[1]+","+c[2]+")")
-        // document.getElementsByClassName("entry")[0].style.background = "rgb("+c[0]+","+c[1]+","+c[2]+")";
-    });
-
-    img.crossOrigin = 'Anonymous';
-    img.src = 'https://metadata.degods.com/g/' + random + '-dead.png'
-    document.getElementById('degod-img').src = img.src
-</script>
+<script src="./js/light.js"></script>
